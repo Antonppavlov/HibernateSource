@@ -24,12 +24,8 @@ public class HibernateUtil {
         } catch (Exception e) {
             // The registry would be destroyed by the SessionFactory, but we had trouble building the SessionFactory
             // so destroy it manually.
-            System.err.println("HibernateUtil не смог!!!");
-            System.err.println("HibernateUtil не смог!!!");
-            System.err.println("HibernateUtil не смог!!!");
-           // StandardServiceRegistryBuilder.destroy(registry);
             e.printStackTrace();
-
+            StandardServiceRegistryBuilder.destroy(registry);
         }
     }
 
@@ -37,5 +33,7 @@ public class HibernateUtil {
         return sessionFactory;
     }
 
+    private HibernateUtil() {
+    }
 
 }
