@@ -4,15 +4,13 @@ package ru.learn.www.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Getter
 @Setter
+@Table(name = "book")
 public class Book  implements Serializable {
 
     @Id
@@ -20,5 +18,6 @@ public class Book  implements Serializable {
     private long id;
 
     private String name;
-    private long author_id;
+    @Column(name = "author_id")
+    private long authorId;
 }
