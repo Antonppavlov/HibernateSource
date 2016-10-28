@@ -14,5 +14,7 @@ dependencies {
     compile('mysql:mysql-connector-java:5.1.39')
     compile('org.projectlombok:lombok:+')
 
+    compile group:'org.slf4j', name: 'slf4j-log4j12',version: '+'
+
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
