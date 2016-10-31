@@ -1,15 +1,19 @@
 package ru.learn.www.entity;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@DynamicUpdate
+@DynamicInsert
 @Table(name = "book")
 public class Book  implements Serializable {
 
@@ -18,6 +22,8 @@ public class Book  implements Serializable {
     private long id;
 
     private String name;
-    @Column(name = "author_id")
-    private long authorId;
+
+    @ManyToOne
+    @JoinColumn
+    private Author author;
 }

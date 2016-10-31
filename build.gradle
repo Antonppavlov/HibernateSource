@@ -1,7 +1,12 @@
+plugins {
+    id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.1"
+}
+
 group 'ru.anton.traning'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: "at.comm_unity.gradle.plugins.jpamodelgen"
 
 sourceCompatibility = 1.8
 
@@ -17,4 +22,8 @@ dependencies {
     compile group:'org.slf4j', name: 'slf4j-log4j12',version: '+'
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+jpaModelgen {
+    library = "org.hibernate:hibernate-jpamodelgen:+"
+    jpaModelgenSourcesDir = "src/main/resources/"
 }
